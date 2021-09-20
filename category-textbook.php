@@ -4,13 +4,13 @@ get_header();
 <section>
   <h2 class="txt_center">教材一覧</h2>
   <ul class="bl_cardList mt_30 col_2">
+    <?php while ( have_posts() ) : the_post();?>
       <li>
-        <?php while ( have_posts() ) : the_post();?>
         <a href="<?php the_permalink(); ?>">
-        <div class="card mb-3">
+        <div class="card">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <?php the_post_thumbnail('medium', ['class' => 'bd-placeholder-img', 'width' => '100%', 'height' => '100']); ?>
+              <?php the_post_thumbnail('medium', ['class' => 'bd-placeholder-img', 'width' => '100%', 'height' => '100%']); ?>
             </div>
             <div class="col-md-8">
               <div class="card-body">
@@ -22,8 +22,8 @@ get_header();
           </div>
         </div>
         </a>
-        <?php endwhile;?>
       </li>
+    <?php endwhile;?>
   </ul>
 </section>
 
