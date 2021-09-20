@@ -52,6 +52,11 @@ h2::before{
 .bl_cardList li:hover{
   transform: translateY(-5px);
 }
+.bl_cardList .bd-placeholder-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* モジュール */
 .txt_center{
