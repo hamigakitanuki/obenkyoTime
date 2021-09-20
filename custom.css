@@ -39,18 +39,34 @@ h2::before{
 /* 問題一覧や教材一覧で使われてるカードリスト */
 .bl_cardList{
   padding-left: 0px;
+  padding: 30px;
   margin-bottom: 0px;
   list-style: none;
-  display: block;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: grid;
   gap: 30px;
+  border-radius: 4px;
+}
+.bl_cardList.col_3{
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.bl_cardList.col_2{
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.bl_cardList li .card{
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
 }
 .bl_cardList li{
   display: inline-block;
-  transition: transform 0.3s;
+  transition: 0.3s;
+  box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 0px 0px 0px 1px rgba(10,10,10,0.02);
+  background-color: transparent;
 }
 .bl_cardList li:hover{
   transform: translateY(-5px);
+  box-shadow: 0px 13px 16px 4px rgba(10,10,10,0.1), 0px 0px 0px 1px rgba(10,10,10,0.02);
 }
 .bl_cardList .bd-placeholder-img{
   width: 100%;
@@ -58,7 +74,42 @@ h2::before{
   object-fit: cover;
 }
 
-/* モジュール */
+/* トップのメニュー */
+.bl_topMenu{
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  gap: 30px;
+  width: max-content;
+  list-style: none;
+  padding-left: 0px;
+  margin-bottom: 0px;
+  margin: 0 auto;
+}
+.bl_topMenu li{
+  display: inline-block;
+  height: 200px;
+  transition: transform 0.3s;
+}
+.bl_topMenu li:hover{
+  transform: translateY(-5px);
+}
+.bl_topMenu li a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.bl_topMenu li i{
+  font-size: 100px;
+}
+.bl_topMenu li p{
+  margin-top: 15px;
+}
+
+
+/* ヘルパー */
 .txt_center{
   text-align: center;
 }

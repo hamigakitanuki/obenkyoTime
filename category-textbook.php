@@ -3,11 +3,11 @@ get_header();
 ?>
 <section>
   <h2 class="txt_center">教材一覧</h2>
-  <ul class="bl_cardList mt_30">
+  <ul class="bl_cardList mt_30 col_2">
       <li>
         <?php while ( have_posts() ) : the_post();?>
         <a href="<?php the_permalink(); ?>">
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4">
               <?php the_post_thumbnail('medium', ['class' => 'bd-placeholder-img', 'width' => '100%', 'height' => '100']); ?>
