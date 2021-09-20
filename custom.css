@@ -33,7 +33,7 @@ h2::before{
   width: 100%;
 }
 .isNotSingle{
-  padding-top: 80px;
+  padding-top: 50px;
 }
 
 /* 問題一覧や教材一覧で使われてるカードリスト */
@@ -90,6 +90,41 @@ h2::before{
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* トップページ */
+.bl_top{
+  padding: 200px;
+  background: linear-gradient(31deg, rgba(225,235,142,1) 0%, rgba(73,242,250,1) 57%, rgba(78,219,247,1) 100%);
+  height: 100vh;
+  margin-top: -80px;
+  display: flex;
+  justify-content: space-between;
+}
+.bl_top_chatch p{
+  font-size: 120px;
+  font-weight: bold;
+}
+.bl_top_chatch span{
+  font-size: 30px;
+}
+.bl_top_manu{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.el_btn_primary{
+  width: 300px;
+  border-radius: 999px;
+  padding: 12px;
+  background-color: #fff;
+  margin-top: 30px;
+  text-align: center;
+  transition: 0.3s;
+}
+.el_btn_primary:hover{
+  opacity: 0.6;
 }
 
 /* トップのメニュー */
