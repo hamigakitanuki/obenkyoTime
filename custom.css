@@ -58,6 +58,22 @@ h2::before{
   height: 100%;
   border-radius: 4px;
 }
+.bl_cardList li .card ol{
+  display: flex;
+  flex-direction: column;
+  counter-reset: item;
+  padding-left: 0px;
+}
+.bl_cardList li .card ol li{
+  box-shadow: none;
+}
+.bl_cardList li .card ol li:before {
+  counter-increment: item;
+  content: counter(item)'位';
+  /* 以下は自由に装飾... */
+  padding-right: .5em;
+  font-weight: bold;
+}
 .bl_cardList li{
   display: inline-block;
   transition: 0.3s;
@@ -77,13 +93,17 @@ h2::before{
 /* トップのメニュー */
 .bl_topMenu{
   display: grid;
-  grid-template-columns: repeat(4, 200px);
+  grid-template-columns: repeat(5, 200px);
   gap: 30px;
-  width: max-content;
   list-style: none;
   padding-left: 0px;
+  padding: 60px;
   margin-bottom: 0px;
   margin: 0 auto;
+  background-color: #ffffe0;
+  border-radius: 50px;
+  width: max-content;
+  height: max-content;
 }
 .bl_topMenu li{
   display: inline-block;

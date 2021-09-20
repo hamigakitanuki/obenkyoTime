@@ -77,6 +77,10 @@
 									<li class="nav-item">
 										<a class="nav-link" href="<?php echo home_url( '/' ) ?>question">問題一覧</a>
 									</li>
+
+									<li class="nav-item">
+										<a class="nav-link" href="<?php echo home_url( '/' ) ?>ranking">ランキング</a>
+									</li>
 								<?php endif;?>
 							</ul>
 							<!-- ログインプルダウン -->
