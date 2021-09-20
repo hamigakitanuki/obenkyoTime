@@ -40,7 +40,7 @@
 				// 記事のカテゴリー情報を取得する
 				$cat = get_the_category();
 				// 取得した配列から必要な情報を変数に入れる
-				$cat_slug  = $cat[0]->category_nicename; // カテゴリースラッグ
+				$cat_slug  = $cat[0]->category_nicename ?? ''; // カテゴリースラッグ
 			?>
 
 			<?php
@@ -53,18 +53,39 @@
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<!-- ログインしているユーザーのみメニュー表示 -->
 							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="<?php echo home_url( '/' ) ?>">トップ</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="<?php echo home_url( '/' ) ?>textbook">教材一覧</a>
-								</li>
+								<?php if (is_user_logged_in()):?>
+									<li class="nav-item">
+										<a class="nav-link active" aria-current="page" href="<?php echo home_url( '/' ) ?>">トップ</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="<?php echo home_url( '/' ) ?>textbook">教材一覧</a>
+									</li>
 
-								<li class="nav-item">
-									<a class="nav-link" href="<?php echo home_url( '/' ) ?>question">問題一覧</a>
-								</li>
+									<li class="nav-item">
+										<a class="nav-link" href="<?php echo home_url( '/' ) ?>question">問題一覧</a>
+									</li>
+								<?php endif;?>
 							</ul>
+							<div>
+								<?php if (!is_user_logged_in()): ?>
+									<a href="<?php echo home_url( '/' ) ?>login">ログイン</a>
+								<?php else: ?>
+									<div class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											<?php echo do_shortcode('[wpmem_field user_login]'); ?>さん
+										</a>
+										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<li><a class="dropdown-item" href="#">マイページ</a></li>
+											<li><a class="dropdown-item" href="#">実績</a></li>
+											<li><hr class="dropdown-divider"></li>
+											<li><a class="dropdown-item" href="<?php echo home_url( '/' ) ?>logout/?a=logout">ログアウト</a></li>
+										</ul>
+									</div>
+								<?php endif;?>
+
+							</div>
 							<!-- <form class="d-flex">
 								<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 								<button class="btn btn-outline-success" type="submit">Search</button>
