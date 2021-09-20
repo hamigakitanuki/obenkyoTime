@@ -26,7 +26,9 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
+<div id="page" class="site
+	<?php if(!is_single()) echo 'isNotSingle'; ?>
+">
 
 		<header id="masthead" class="<?php echo is_singular() && twentynineteen_can_show_post_thumbnail() ? 'site-header featured-image' : 'site-header'; ?>">
 
@@ -34,24 +36,16 @@
 				<?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
 			</div><!-- .site-branding-container -->
 
-			<?php if ( is_singular() && twentynineteen_can_show_post_thumbnail() ) : ?>
-				<div class="site-featured-image">
-					<?php
-						twentynineteen_post_thumbnail();
-						the_post();
-						$discussion = ! is_page() && twentynineteen_can_show_post_thumbnail() ? twentynineteen_get_discussion_data() : null;
+			<?php
+				// 記事のカテゴリー情報を取得する
+				$cat = get_the_category();
+				// 取得した配列から必要な情報を変数に入れる
+				$cat_slug  = $cat[0]->category_nicename; // カテゴリースラッグ
+			?>
 
-						$classes = 'entry-header';
-					if ( ! empty( $discussion ) && absint( $discussion->responses ) > 0 ) {
-						$classes = 'entry-header has-discussion';
-					}
-					?>
-					<div class="<?php echo $classes; ?>">
-						<?php get_template_part( 'template-parts/header/entry', 'header' ); ?>
-					</div><!-- .entry-header -->
-					<?php rewind_posts(); ?>
-				</div>
-			<?php else: ?>
+			<?php
+				if($cat_slug != 'question' || !is_single()):
+			?>
 				<nav class="navbar navbar-expand-lg navbar-light bg-light">
 					<div class="container-fluid">
 						<a class="navbar-brand" href="<?php echo home_url( '/' ) ?>">お勉強タイム</a>
@@ -78,6 +72,25 @@
 						</div>
 					</div>
 				</nav>
+			<?php endif; ?>
+
+			<?php if ( is_singular() && twentynineteen_can_show_post_thumbnail() ) : ?>
+				<div class="site-featured-image">
+					<?php
+						twentynineteen_post_thumbnail();
+						the_post();
+						$discussion = ! is_page() && twentynineteen_can_show_post_thumbnail() ? twentynineteen_get_discussion_data() : null;
+
+						$classes = 'entry-header';
+					if ( ! empty( $discussion ) && absint( $discussion->responses ) > 0 ) {
+						$classes = 'entry-header has-discussion';
+					}
+					?>
+					<div class="<?php echo $classes; ?>">
+						<?php get_template_part( 'template-parts/header/entry', 'header' ); ?>
+					</div><!-- .entry-header -->
+					<?php rewind_posts(); ?>
+				</div>
 			<?php endif; ?>
 		</header><!-- #masthead -->
 

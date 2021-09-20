@@ -26,6 +26,15 @@ h2::before{
 .site-header.featured-image{
   padding: 3rem 0;
 }
+.navbar.navbar-expand-lg{
+  position: fixed;
+  top: 0px;
+  z-index: 999;
+  width: 100%;
+}
+.isNotSingle{
+  padding-top: 80px;
+}
 
 /* 問題一覧や教材一覧で使われてるカードリスト */
 .bl_cardList{
