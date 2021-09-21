@@ -40,7 +40,7 @@ $discussion = twentynineteen_get_discussion_data();
 				if ( have_comments() ) {
 					_e( 'Join the Conversation', 'twentynineteen' );
 				} else {
-					_e( 'Leave a comment', 'twentynineteen' );
+					echo '質問掲示板';
 				}
 			} else {
 				if ( '1' == $discussion->responses ) {
