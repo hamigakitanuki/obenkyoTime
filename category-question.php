@@ -6,7 +6,7 @@ get_header();
   <ul class="bl_cardList mt_30 col_3">
     <?php while ( have_posts() ) : the_post();?>
       <li>
-        <a href="<?php the_permalink(); ?>">
+        <a href="<?php the_permalink(); ?>" target="_blank">
           <div class="card">
             <?php the_post_thumbnail('medium', ['class' => 'bd-placeholder-img card-img-top', 'width' => '100%', 'height' => '180']); ?>
             <div class="card-body">
