@@ -361,3 +361,9 @@ require get_template_directory() . '/inc/customizer.php';
  * Block Patterns.
  */
 require get_template_directory() . '/inc/block-patterns.php';
+
+
+/*
+ * 全ユーザー共通でツールバーを非表示
+ */
+add_filter( 'show_admin_bar', '__return_false' );
